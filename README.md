@@ -1,7 +1,7 @@
 # IN616 Bash Script Assignment
 ### Author: Keegan Smith
 ### Username: smitkb1
-### Date:
+### Date: Sun 2021-06-06 09:33:35 NZST
 
 IP: 10.25.137.163
 
