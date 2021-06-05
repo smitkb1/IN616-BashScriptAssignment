@@ -32,17 +32,20 @@ sharedFolder=$col4
 
 if [[ ! -d "$sharedFolder" ]]
 then
-sudo mkdir /home/IN616-BashScriptAssignment/"task 1"/"$sharedFolder"
+sudo mkdir /home/IN616-BashScriptAssignment/"task 1""$sharedFolder"
 fi
 sudo groupadd "$group"
 
 if [[ $? == 0 ]]
 then
-sudo chgrp -R "$group" /home/IN616-BashScriptAssignment/"task 1"/"$sharedFolder"
-sudo chmod -R 2775 /home/IN616-BashScriptAssignment/"task 1"/"$sharedFolder"
+sudo chgrp -R "$group" /home/IN616-BashScriptAssignment/"task 1""$sharedFolder"
+sudo chmod -R 2775 /home/IN616-BashScriptAssignment/"task 1""$sharedFolder"
 fi
 
-sudo useradd -d /home/"$username" -m -s /bin/bash "$username"
+sudo useradd -d /home/"$username" -m -G "$col3" -s /bin/bash "$username"
+echo "$username:$password" | sudo chpasswd
+ln -s /home/IN616-BashScriptAssignment/"task 1""$sharedFolder" shared
+sudo mv /home/IN616-BashScriptAssignment/"task 1"/shared /home/"$username"/ 
 echo "$username"
 echo "$password"
 echo "$group"
